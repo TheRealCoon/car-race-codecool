@@ -2,7 +2,12 @@ package com.codecool.car_race;
 
 public class Race {
     private final int raceTime = 50;
+    private boolean yellowFlag = false;
     public Race() {
+    }
+
+    public boolean isYellowFlagActive(){
+        return yellowFlag;
     }
 
     /**
