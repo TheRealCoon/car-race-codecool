@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Race {
-    private final int raceTime = 50;
+    private final int RACE_TIME = 50;
     private boolean yellowFlag = false;
     private List<Vehicle> racers;
     public Race() {
@@ -24,7 +24,7 @@ public class Race {
      * moving the vehicles for the duration of a whole race.
      */
     public void simulateRace() {
-        for (int i = 0; i < raceTime; i++) {
+        for (int i = 0; i < RACE_TIME; i++) {
             Weather.advance();
             for (Vehicle vehicle: racers) {
                 vehicle.moveForAnHour();
