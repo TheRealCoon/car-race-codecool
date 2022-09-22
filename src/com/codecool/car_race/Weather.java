@@ -8,7 +8,7 @@ public class Weather {
 
     public static void advance() {
         Random random = new Random();
-        isRaining = random.nextInt(0, 100) < 30;
+        isRaining = random.nextInt(0, 100) < CHANCE_OF_RAIN;
     }
 
     public static boolean isRaining(){
