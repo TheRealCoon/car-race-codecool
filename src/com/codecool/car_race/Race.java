@@ -1,11 +1,17 @@
 package com.codecool.car_race;
 
+import java.util.ArrayList;
+
 public class Race {
     private final int raceTime = 50;
     private boolean yellowFlag = false;
+    private List<Vehicle> racers;
     public Race() {
+        racers = new ArrayList<>();
     }
-
+    public void registerRacer(Vehicle vehicle){
+        racers.add(vehicle);
+    }
     public boolean isYellowFlagActive(){
         return yellowFlag;
     }
