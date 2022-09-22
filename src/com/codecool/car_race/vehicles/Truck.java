@@ -4,6 +4,8 @@ import com.codecool.car_race.Race;
 import com.codecool.car_race.util.Randomizer;
 
 public class Truck extends Vehicle {
+    private static final int MIN_NAME_INCLUSIVE = 1;
+    private static final int MAX_NAME_EXCLUSIVE = 1000;
     private static final int NORMAL_SPEED = 100;
     private static final int BROKEN_DOWN_SPEED = 0;
     private static final int CHANCE_OF_BREAKDOWN = 5;
@@ -20,7 +22,7 @@ public class Truck extends Vehicle {
     private void generateBrokenDownState() {
         if (!isBrokenDown) {
             isBrokenDown = (Randomizer.nextInt(100) < CHANCE_OF_BREAKDOWN);
-            if(isBrokenDown) timer = TIME_NEEDED_TO_FIX_TRUCK;
+            if (isBrokenDown) timer = TIME_NEEDED_TO_FIX_TRUCK;
         } else {
             timer--;
             if (timer == 0) isBrokenDown = false;
@@ -35,8 +37,7 @@ public class Truck extends Vehicle {
 
     @Override
     protected String generateName() {
-        //TODO
-        return null;
+        return String.valueOf(Randomizer.nextInt(MIN_NAME_INCLUSIVE, MAX_NAME_EXCLUSIVE));
     }
 
     @Override

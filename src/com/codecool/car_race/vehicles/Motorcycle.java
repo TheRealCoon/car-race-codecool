@@ -4,10 +4,11 @@ import com.codecool.car_race.Race;
 import com.codecool.car_race.Weather;
 import com.codecool.car_race.util.Randomizer;
 
-public class Motorcycle extends Vehicle{
+public class Motorcycle extends Vehicle {
     private static final int NORMAL_SPEED = 100;
-    private static final int MIN_RAIN_SPEED = 6;
-    private static final int MAX_RAIN_SPEED = 50;
+    private static final int MIN_RAIN_SPEED_INCLUSIVE = 6;
+    private static final int MAX_RAIN_SPEED_EXCLUSIVE = 50;
+    private static int motorCycleCounter = 1;
 
     public Motorcycle() {
         super();
@@ -19,13 +20,13 @@ public class Motorcycle extends Vehicle{
     }
 
     private int generateRainSpeed() {
-        return Randomizer.nextInt(MIN_RAIN_SPEED,MAX_RAIN_SPEED);
+        return Randomizer.nextInt(MIN_RAIN_SPEED_INCLUSIVE, MAX_RAIN_SPEED_EXCLUSIVE);
     }
 
     @Override
     protected String generateName() {
-        //TODO
-        return null;
+        motorCycleCounter++;
+        return "Motorcycle " + motorCycleCounter;
     }
 
     @Override
