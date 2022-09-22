@@ -1,5 +1,7 @@
 package com.codecool.car_race;
 
+import com.codecool.car_race.util.Randomizer;
+
 import java.util.Random;
 
 public class Weather {
@@ -7,8 +9,7 @@ public class Weather {
     private static boolean isRaining = false;
 
     public static void advance() {
-        Random random = new Random();
-        isRaining = random.nextInt(0, 100) < CHANCE_OF_RAIN;
+        isRaining = Randomizer.nextInt(100) < CHANCE_OF_RAIN;
     }
 
     public static boolean isRaining(){

@@ -35,7 +35,6 @@ public class CarNames {
     }};
 
     public static String generateName(){
-        Random random = new Random();
-        return names.get(random.nextInt(0,names.size())) + names.get(random.nextInt(0,names.size()));
+        return Randomizer.getRandomFromList(names) + " " + Randomizer.getRandomFromList(names);
     }
 }
