@@ -5,7 +5,7 @@ import com.codecool.car_race.Weather;
 import com.codecool.car_race.util.Randomizer;
 
 public class Motorcycle extends Vehicle {
-    private static final int NORMAL_SPEED = 100;
+    private static final int NORMAL_MOTORCYCLE_SPEED = 100;
     private static final int MIN_RAIN_SPEED_INCLUSIVE = 6;
     private static final int MAX_RAIN_SPEED_EXCLUSIVE = 50;
     private static int motorCycleCounter = 1;
@@ -16,11 +16,11 @@ public class Motorcycle extends Vehicle {
 
     @Override
     public void prepareForLap(Race race) {
-        actualSpeed = (Weather.isRaining()) ? generateRainSpeed() : normalSpeed;
+        actualSpeed = (Weather.isRaining()) ? generateRainSpeed() : NORMAL_MOTORCYCLE_SPEED;
     }
 
     private int generateRainSpeed() {
-        return Randomizer.nextInt(MIN_RAIN_SPEED_INCLUSIVE, MAX_RAIN_SPEED_EXCLUSIVE);
+        return NORMAL_MOTORCYCLE_SPEED - Randomizer.nextInt(MIN_RAIN_SPEED_INCLUSIVE, MAX_RAIN_SPEED_EXCLUSIVE);
     }
 
     @Override
@@ -31,6 +31,6 @@ public class Motorcycle extends Vehicle {
 
     @Override
     protected int generateNormalSpeed() {
-        return NORMAL_SPEED;
+        return NORMAL_MOTORCYCLE_SPEED;
     }
 }
