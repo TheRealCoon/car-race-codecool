@@ -12,6 +12,10 @@ public class Randomizer {
         return RANDOM.nextInt(max);
     }
 
+    public static int nextInt(int min, int max){
+        return RANDOM.nextInt(min, max);
+    }
+
     public static String getRandomFromList(List<String> list){
         return list.get(RANDOM.nextInt(list.size()));
     }

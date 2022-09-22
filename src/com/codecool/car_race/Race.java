@@ -1,6 +1,9 @@
 package com.codecool.car_race;
 
+import com.codecool.car_race.vehicles.Vehicle;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class Race {
     private final int raceTime = 50;

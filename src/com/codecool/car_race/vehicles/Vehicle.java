@@ -2,23 +2,25 @@ package com.codecool.car_race.vehicles;
 
 import com.codecool.car_race.Race;
 
-public class Vehicle {
-    //private static final int YELLOW_FLAG_SPEED = 75;
-    private String name;
-    private final int normalSpeed;
-    private int actualSpeed;
-    private int distanceTraveled;
+public abstract class Vehicle {
+    protected final String name;
+    protected final int normalSpeed;
+    protected int actualSpeed;
+    protected int distanceTraveled;
 
-    public Vehicle(String name, int normalSpeed) {
-        this.name = name;
-        this.normalSpeed = normalSpeed;
+    protected Vehicle() {
+        this.name = generateName();
+        this.normalSpeed = generateNormalSpeed();
+        this.distanceTraveled = 0;
     }
 
+    protected abstract String generateName();
+    protected abstract int generateNormalSpeed();
 
-    public void prepareForLap() {
-        //actualSpeed = (race.isYellowFlagActive()) ? YELLOW_FLAG_SPEED : normalSpeed;
-    }
+
+    public abstract void prepareForLap(Race race);
 
     public void moveForAnHour() {
+        distanceTraveled += actualSpeed;
     }
 }
