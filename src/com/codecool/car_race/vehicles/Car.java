@@ -28,8 +28,4 @@ public class Car extends Vehicle {
         actualSpeed = (race.isYellowFlagActive()) ? YELLOW_FLAG_SPEED : normalSpeed;
     }
 
-    @Override
-    public void moveForAnHour() {
-
-    }
 }
