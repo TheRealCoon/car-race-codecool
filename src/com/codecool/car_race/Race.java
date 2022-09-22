@@ -23,6 +23,9 @@ public class Race {
      * race.
      */
     public void printRaceResults() {
+        for (Vehicle vehicle: racers) {
+            System.out.println(vehicle);
+        }
     }
 
 }
