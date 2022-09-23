@@ -15,6 +15,7 @@ public abstract class Vehicle {
     }
 
     protected abstract String generateName();
+
     protected abstract int generateNormalSpeed();
 
 
@@ -23,5 +24,13 @@ public abstract class Vehicle {
     public void moveForAnHour(Race race) {
         prepareForLap(race);
         distanceTraveled += actualSpeed;
+    }
+
+    @Override
+    public String toString() {
+        return "Name: " + name +
+               " --- Distance travelled: " + distanceTraveled +
+               " km --- Vehicle type: " + getClass().getSimpleName() +
+               " --- Normal speed: " + normalSpeed + " km/h";
     }
 }
