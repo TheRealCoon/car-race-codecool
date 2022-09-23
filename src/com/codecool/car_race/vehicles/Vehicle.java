@@ -6,6 +6,7 @@ public abstract class Vehicle {
     protected final String name;
     protected final int normalSpeed;
     protected int actualSpeed;
+
     protected int distanceTraveled;
 
     protected Vehicle() {
@@ -23,6 +24,10 @@ public abstract class Vehicle {
 
     public void moveForAnHour() {
         distanceTraveled += actualSpeed;
+    }
+
+    public int getDistanceTraveled() {
+        return distanceTraveled;
     }
 
     @Override
