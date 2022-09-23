@@ -10,6 +10,6 @@ public class VehicleByDistanceTraveledComparator implements Comparator<Vehicle> 
         if (o1 == null || o2 == null) throw new NullPointerException("\n********************************" +
                                                                      "\n One or more vehicles are null! " +
                                                                      "\n ****************************** \n ");
-        return Integer.compare(o1.getDistanceTraveled(), o2.getDistanceTraveled());
+        return Integer.compare(o2.getDistanceTraveled(), o1.getDistanceTraveled());
     }
 }
