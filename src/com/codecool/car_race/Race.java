@@ -5,7 +5,6 @@ import com.codecool.car_race.vehicles.Truck;
 import com.codecool.car_race.vehicles.Vehicle;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Race {
@@ -14,13 +13,16 @@ public class Race {
     private boolean yellowFlag = false;
 
     private List<Vehicle> racers;
+
     public Race() {
         racers = new ArrayList<>();
     }
-    public void registerRacer(Vehicle vehicle){
+
+    public void registerRacer(Vehicle vehicle) {
         racers.add(vehicle);
     }
-    public boolean isYellowFlagActive(){
+
+    public boolean isYellowFlagActive() {
         return yellowFlag;
     }
 
@@ -29,17 +31,24 @@ public class Race {
      * moving the vehicles for the duration of a whole race.
      */
     public void simulateRace() {
+        int yellowFlagCounter = 0;
         for (int i = 0; i < RACE_TIME; i++) {
             Weather.advance();
             yellowFlag = areThereBrokenDownTrucks();
-            for (Vehicle vehicle: racers) {
+            if (yellowFlag) {
+                System.out.println("Yellowflag in lap " + (i + 1));
+                yellowFlagCounter++;
+            }
+            for (Vehicle vehicle : racers) {
                 vehicle.prepareForLap(this);
                 vehicle.moveForAnHour();
             }
         }
+        System.out.println("Yellow Flags during the race:" + yellowFlagCounter);
     }
-    private boolean areThereBrokenDownTrucks(){
-        for (Vehicle vehicle: racers) {
+
+    private boolean areThereBrokenDownTrucks() {
+        for (Vehicle vehicle : racers) {
             if (vehicle instanceof Truck && ((Truck) vehicle).isBrokenDown()) return true;
         }
         return false;
@@ -53,8 +62,8 @@ public class Race {
         racers.sort(new VehicleByDistanceTraveledComparator());
         System.out.printf(
                 "%26s|%19s|%14s|%13s%n",
-        "Name ", " Distance traveled ", " Vehicle type ", " Normal speed");
-        for (Vehicle vehicle: racers) {
+                "Name ", " Distance traveled ", " Vehicle type ", " Normal speed");
+        for (Vehicle vehicle : racers) {
             System.out.println(vehicle);
         }
     }
