@@ -32,9 +32,8 @@ public abstract class Vehicle {
 
     @Override
     public String toString() {
-        return "Name: " + name +
-               " --- Distance travelled: " + distanceTraveled +
-               " km --- Vehicle type: " + getClass().getSimpleName() +
-               " --- Normal speed: " + normalSpeed + " km/h";
+        return String.format(
+                "%25s%17d km%15s%10d km/h",
+                name, distanceTraveled, getClass().getSimpleName(), normalSpeed);
     }
 }

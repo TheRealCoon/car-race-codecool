@@ -1,9 +1,11 @@
 package com.codecool.car_race;
 
+import com.codecool.car_race.util.VehicleByDistanceTraveledComparator;
 import com.codecool.car_race.vehicles.Truck;
 import com.codecool.car_race.vehicles.Vehicle;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Race {
@@ -48,6 +50,10 @@ public class Race {
      * race.
      */
     public void printRaceResults() {
+        racers.sort(new VehicleByDistanceTraveledComparator());
+        System.out.printf(
+                "%26s|%19s|%14s|%13s%n",
+        "Name ", " Distance traveled ", " Vehicle type ", " Normal speed");
         for (Vehicle vehicle: racers) {
             System.out.println(vehicle);
         }
