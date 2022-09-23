@@ -15,15 +15,6 @@ public class Motorcycle extends Vehicle {
     }
 
     @Override
-    public void prepareForLap(Race race) {
-        actualSpeed = (Weather.isRaining()) ? generateRainSpeed() : NORMAL_MOTORCYCLE_SPEED;
-    }
-
-    private int generateRainSpeed() {
-        return NORMAL_MOTORCYCLE_SPEED - Randomizer.nextInt(MIN_RAIN_SPEED_INCLUSIVE, MAX_RAIN_SPEED_EXCLUSIVE);
-    }
-
-    @Override
     protected String generateName() {
         motorCycleCounter++;
         return "Motorcycle " + motorCycleCounter;
@@ -32,5 +23,14 @@ public class Motorcycle extends Vehicle {
     @Override
     protected int generateNormalSpeed() {
         return NORMAL_MOTORCYCLE_SPEED;
+    }
+
+    @Override
+    public void prepareForLap(Race race) {
+        actualSpeed = (Weather.isRaining()) ? generateRainSpeed() : NORMAL_MOTORCYCLE_SPEED;
+    }
+
+    private int generateRainSpeed() {
+        return NORMAL_MOTORCYCLE_SPEED - Randomizer.nextInt(MIN_RAIN_SPEED_INCLUSIVE, MAX_RAIN_SPEED_EXCLUSIVE);
     }
 }

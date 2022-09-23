@@ -20,7 +20,8 @@ public abstract class Vehicle {
 
     public abstract void prepareForLap(Race race);
 
-    public void moveForAnHour() {
+    public void moveForAnHour(Race race) {
+        prepareForLap(race);
         distanceTraveled += actualSpeed;
     }
 }

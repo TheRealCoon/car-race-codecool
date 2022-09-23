@@ -19,22 +19,6 @@ public class Truck extends Vehicle {
         timer = TIME_NEEDED_TO_FIX_TRUCK;
     }
 
-    private void generateBrokenDownState() {
-        if (!isBrokenDown) {
-            isBrokenDown = (Randomizer.nextInt(100) < CHANCE_OF_BREAKDOWN);
-            if (isBrokenDown) timer = TIME_NEEDED_TO_FIX_TRUCK;
-        } else {
-            timer--;
-            if (timer == 0) isBrokenDown = false;
-        }
-    }
-
-    @Override
-    public void prepareForLap(Race race) {
-        generateBrokenDownState();
-        actualSpeed = (isBrokenDown) ? BROKEN_DOWN_SPEED : NORMAL_TRUCK_SPEED;
-    }
-
     @Override
     protected String generateName() {
         return String.valueOf(Randomizer.nextInt(MIN_NAME_INCLUSIVE, MAX_NAME_EXCLUSIVE));
@@ -43,5 +27,21 @@ public class Truck extends Vehicle {
     @Override
     protected int generateNormalSpeed() {
         return NORMAL_TRUCK_SPEED;
+    }
+
+    @Override
+    public void prepareForLap(Race race) {
+        generateBrokenDownState();
+        actualSpeed = (isBrokenDown) ? BROKEN_DOWN_SPEED : NORMAL_TRUCK_SPEED;
+    }
+
+    private void generateBrokenDownState() {
+        if (!isBrokenDown) {
+            isBrokenDown = (Randomizer.nextInt(100) < CHANCE_OF_BREAKDOWN);
+            if (isBrokenDown) timer = TIME_NEEDED_TO_FIX_TRUCK;
+        } else {
+            timer--;
+            if (timer == 0) isBrokenDown = false;
+        }
     }
 }

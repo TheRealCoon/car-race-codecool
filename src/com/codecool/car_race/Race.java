@@ -27,7 +27,7 @@ public class Race {
         for (int i = 0; i < RACE_TIME; i++) {
             Weather.advance();
             for (Vehicle vehicle: racers) {
-                vehicle.moveForAnHour();
+                vehicle.moveForAnHour(this);
             }
         }
     }
