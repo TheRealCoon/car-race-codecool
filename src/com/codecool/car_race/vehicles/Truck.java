@@ -11,8 +11,8 @@ public class Truck extends Vehicle {
     private static final int CHANCE_OF_BREAKDOWN = 5;
     private static final int TIME_NEEDED_TO_FIX_TRUCK = 2;
     private boolean isBrokenDown;
-    private int timer;
 
+    private int timer;
     public Truck() {
         super();
         isBrokenDown = false;
@@ -43,5 +43,9 @@ public class Truck extends Vehicle {
             timer--;
             if (timer == 0) isBrokenDown = false;
         }
+    }
+
+    public boolean isBrokenDown() {
+        return isBrokenDown;
     }
 }
