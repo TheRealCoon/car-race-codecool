@@ -29,10 +29,20 @@ class CarTest {
         testRace.registerRacer(testCar);
         for (int i = 0; i < TEST_CYCLES; i++) {
             for (Vehicle vehicle: testRace.getRacers()) {
-                vehicle.prepareForLap(testRace);
-                vehicle.moveForAnHour();
+                if (vehicle instanceof Truck truck) {
+                    truck.prepareForLap(testRace);
+                    truck.moveForAnHour();
+                }
+            }
+            testRace.setYellowFlag(testRace.areThereBrokenDownTrucks());
+            for (Vehicle vehicle: testRace.getRacers()) {
+                if (!(vehicle instanceof Truck)) {
+                    vehicle.prepareForLap(testRace);
+                    vehicle.moveForAnHour();
+                }
             }
             if (testRace.isYellowFlagActive()) {
+                assertEquals(0, testTruck.getActualSpeed());
                 assertEquals(EXPECTED_SPEED, testCar.getActualSpeed());
             }
         }

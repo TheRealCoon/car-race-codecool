@@ -33,6 +33,7 @@ public class Truck extends Vehicle {
     public void prepareForLap(Race race) {
         generateBrokenDownState();
         setActualSpeed((isBrokenDown) ? BROKEN_DOWN_SPEED : NORMAL_TRUCK_SPEED);
+        if (isBrokenDown) race.setYellowFlag(true);
     }
 
     private void generateBrokenDownState() {

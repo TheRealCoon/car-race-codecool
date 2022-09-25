@@ -35,20 +35,22 @@ public class Race {
      * moving the vehicles for the duration of a whole race.
      */
     public void simulateRace() {
-        int yellowFlagCounter = 0;
         for (int i = 0; i < RACE_TIME; i++) {
             Weather.advance();
-            yellowFlag = areThereBrokenDownTrucks();
-            if (yellowFlag) {
-                System.out.println("Yellowflag in lap " + (i + 1));
-                yellowFlagCounter++;
+            for(Vehicle vehicle : racers){
+                if (vehicle instanceof Truck truck) {
+                    truck.prepareForLap(this);
+                    truck.moveForAnHour();
+                }
             }
+            yellowFlag = areThereBrokenDownTrucks();
             for (Vehicle vehicle : racers) {
-                vehicle.prepareForLap(this);
-                vehicle.moveForAnHour();
+                if (!(vehicle instanceof Truck)) {
+                    vehicle.prepareForLap(this);
+                    vehicle.moveForAnHour();
+                }
             }
         }
-        System.out.println("Yellow Flags during the race:" + yellowFlagCounter);
     }
 
     public boolean areThereBrokenDownTrucks() {
