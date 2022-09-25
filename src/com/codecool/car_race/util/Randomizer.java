@@ -1,7 +1,5 @@
 package com.codecool.car_race.util;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 

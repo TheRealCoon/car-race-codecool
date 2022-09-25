@@ -3,24 +3,38 @@ package com.codecool.car_race.vehicles;
 import com.codecool.car_race.Race;
 
 public abstract class Vehicle {
-    protected final String name;
-    protected final int normalSpeed;
-    protected int actualSpeed;
+    private final String name;
 
-    protected int distanceTraveled;
+    private final int normalSpeed;
+
+    private int actualSpeed;
+
+    private int distanceTraveled;
 
     protected Vehicle() {
-        this.name = generateName();
-        this.normalSpeed = generateNormalSpeed();
-        this.distanceTraveled = 0;
+        name = generateName();
+        normalSpeed = generateNormalSpeed();
+        distanceTraveled = 0;
     }
-
     protected abstract String generateName();
-
-    protected abstract int generateNormalSpeed();
 
 
     public abstract void prepareForLap(Race race);
+
+    public int getNormalSpeed() {
+        return normalSpeed;
+    }
+
+    protected abstract int generateNormalSpeed();
+
+    public int getActualSpeed() {
+        return actualSpeed;
+    }
+
+    public void setActualSpeed(int actualSpeed) {
+        this.actualSpeed = actualSpeed;
+    }
+
 
     public void moveForAnHour() {
         distanceTraveled += actualSpeed;

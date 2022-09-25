@@ -32,7 +32,7 @@ public class Truck extends Vehicle {
     @Override
     public void prepareForLap(Race race) {
         generateBrokenDownState();
-        actualSpeed = (isBrokenDown) ? BROKEN_DOWN_SPEED : NORMAL_TRUCK_SPEED;
+        setActualSpeed((isBrokenDown) ? BROKEN_DOWN_SPEED : NORMAL_TRUCK_SPEED);
     }
 
     private void generateBrokenDownState() {

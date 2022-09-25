@@ -27,7 +27,7 @@ public class Motorcycle extends Vehicle {
 
     @Override
     public void prepareForLap(Race race) {
-        actualSpeed = (Weather.isRaining()) ? generateRainSpeed() : NORMAL_MOTORCYCLE_SPEED;
+        setActualSpeed((Weather.isRaining()) ? generateRainSpeed() : NORMAL_MOTORCYCLE_SPEED);
     }
 
     private int generateRainSpeed() {

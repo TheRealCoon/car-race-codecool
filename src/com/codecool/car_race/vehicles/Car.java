@@ -25,7 +25,7 @@ public class Car extends Vehicle {
 
     @Override
     public void prepareForLap(Race race) {
-        actualSpeed = (race.isYellowFlagActive()) ? YELLOW_FLAG_SPEED : normalSpeed;
+        setActualSpeed((race.isYellowFlagActive()) ? YELLOW_FLAG_SPEED : getNormalSpeed());
     }
 
 }
