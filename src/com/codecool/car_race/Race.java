@@ -26,6 +26,10 @@ public class Race {
         return yellowFlag;
     }
 
+    public void setYellowFlag(boolean yellowFlag) {
+        this.yellowFlag = yellowFlag;
+    }
+
     /**
      * Simulates the passing of time by advancing the weather and
      * moving the vehicles for the duration of a whole race.
@@ -47,11 +51,15 @@ public class Race {
         System.out.println("Yellow Flags during the race:" + yellowFlagCounter);
     }
 
-    private boolean areThereBrokenDownTrucks() {
+    public boolean areThereBrokenDownTrucks() {
         for (Vehicle vehicle : racers) {
             if (vehicle instanceof Truck && ((Truck) vehicle).isBrokenDown()) return true;
         }
         return false;
+    }
+
+    public List<Vehicle> getRacers() {
+        return racers;
     }
 
     /**
