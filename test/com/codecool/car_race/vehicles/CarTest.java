@@ -19,7 +19,7 @@ class CarTest {
     }
 
     @Test
-    void prepareForLap() {
+    void prepareForLap_IfTruckBrakesDown_SpeedOfCarSetsTo75() {
         final int TEST_CYCLES = 10000;
         final int EXPECTED_SPEED = 75;
         Race testRace = new Race();

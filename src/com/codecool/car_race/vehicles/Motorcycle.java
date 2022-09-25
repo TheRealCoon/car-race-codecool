@@ -30,7 +30,7 @@ public class Motorcycle extends Vehicle {
         setActualSpeed((Weather.isRaining()) ? generateRainSpeed() : NORMAL_MOTORCYCLE_SPEED);
     }
 
-    private int generateRainSpeed() {
+    int generateRainSpeed() {
         return NORMAL_MOTORCYCLE_SPEED - Randomizer.nextInt(MIN_RAIN_SPEED_INCLUSIVE, MAX_RAIN_SPEED_EXCLUSIVE);
     }
 }
