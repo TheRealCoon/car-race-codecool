@@ -25,8 +25,9 @@ class CarTest {
         Race testRace = new Race();
         Vehicle testTruck = new Truck();
         Vehicle testCar = new Car();
+        testRace.registerRacer(testTruck);
+        testRace.registerRacer(testCar);
         for (int i = 0; i < TEST_CYCLES; i++) {
-            testRace.setYellowFlag(testRace.areThereBrokenDownTrucks());
             for (Vehicle vehicle: testRace.getRacers()) {
                 vehicle.prepareForLap(testRace);
                 vehicle.moveForAnHour();
